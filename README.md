@@ -38,10 +38,10 @@ Model.py
 
 -Runner object is responsible for creating mini-batches of observations, actions, values, rewards, etc to calculate the 
 	general advantage estimation. We use mini-batches to ensure our GPU doesn't run out of memory while training. We can then
-	return our mini-batches of observations, actions, returns(Qval) and values V(S) back to our learn function.
-
+	return our mini-batches of observations, actions, returns(Qval) and values V(S) back to our learn function. 
 	The major purpose of this runner object is to handle executing different environments in parallel. Utilizes step_model to generate experiences and train_model to train from experiences.
 	We compute the gradients all at ounce using the train_model and our mini-batches of experience.
+	
 
 sonic_env.py
 -Gives us 13 sonic levels and gives our environment some key properties
@@ -53,6 +53,3 @@ sonic_env.py
 
 architecture.py 
 -Defines the architecture of the A2C model. Most importantly it allows our first FC layer to branch off to calculate V(S) and our action probability distribution independently. This allows our actor and critic to use a majority of the same network. 
-
-
-The loss we intend to minimize is A(s, a) = Q(s, a) - V(s). However, since we can't predict QVal by learning a step at a time, we'll replace Q(s, a) - V(s) with TD Error
