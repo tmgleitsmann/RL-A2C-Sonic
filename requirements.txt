@@ -33,7 +33,7 @@ monotonic==1.5
 mpi4py==3.0.3
 # Editable install with no version control (mujoco-py==1.50.1.68)
 -e /Users/gleitsmann/Python/Environments/sonic-rl-env/lib/python3.7/site-packages
-numpy==1.18.1
+numpy==1.22.0
 oauthlib==3.1.0
 opencv-python==4.2.0.32
 opt-einsum==3.1.0
